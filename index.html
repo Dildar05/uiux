@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание - Student Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/desktop-styles.css">
+</head>
+<body class="h-full bg-gray-50">
+    
+    <!-- Desktop Layout Wrapper -->
+    <div class="desktop-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="desktop-sidebar w-64 bg-slate-700 text-white">
+            <div class="p-4 h-full flex flex-col">
+                <!-- Logo & Brand -->
+                <div class="mb-6">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-lg">Student Portal</h2>
+                            <p class="text-slate-300 text-xs">Студенческий портал</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4 mb-8 p-4 bg-slate-600/50 rounded-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-xl font-bold text-white">ДД</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-base">Дильдар Дюсембеев</h3>
+                        <p class="text-slate-300 text-sm">Студент • 3 курс</p>
+                        <div class="flex items-center mt-1">
+                            <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                            <span class="text-xs text-slate-300">Онлайн</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="space-y-1 flex-1 overflow-y-auto">
+                    <a href="index.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-slate-600 border-l-4 border-green-500 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="font-medium">Расписание</span>
+                    </a>
+                    
+                    <a href="journal.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <span class="font-medium">Журнал</span>
+                    </a>
+                    
+                    <a href="grades.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <span class="font-medium">Оценки</span>
+                    </a>
+                    
+                    <a href="notifications.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <div class="relative">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                            </svg>
+                            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center font-bold">3</span>
+                        </div>
+                        <span class="font-medium">Уведомления</span>
+                    </a>
+                    
+                    <div class="border-t border-slate-600 my-4"></div>
+                    
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="font-medium">ИУП</span>
+                    </a>
+                    
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                        </svg>
+                        <span class="font-medium">УМКД</span>
+                    </a>
+                    
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="font-medium">Настройки</span>
+                    </a>
+                </nav>
+                
+                <!-- Bottom Actions -->
+                <div class="pt-4 border-t border-slate-600">
+                    <a href="login.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-red-600/20 transition-all text-red-300 hover:text-red-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                        </svg>
+                        <span class="font-medium">Выход</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="desktop-main flex-1">
+            
+            <!-- Top Header -->
+            <header class="desktop-header sticky top-0 bg-white border-b border-gray-200 z-30 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Расписание</h1>
+                        <p class="text-sm text-gray-500">Суббота, 21 октября 2023</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <!-- Search -->
+                        <div class="relative">
+                            <input type="text" placeholder="Поиск..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent w-64">
+                            <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Theme Toggle -->
+                        <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleTheme()">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- User Menu -->
+                        <button class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-bold text-white">ДД</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Wrapper -->
+            <div class="desktop-content-wrapper">
+                
+                <!-- Stats Grid -->
+                <div class="desktop-grid-3 mb-8">
+                    <div class="stats-card">
+                        <div class="stats-card-icon bg-green-100">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-600 mb-1">Сегодня занятий</p>
+                            <p class="text-3xl font-bold text-gray-900">4</p>
+                            <p class="text-xs text-green-600 mt-1">▲ 2 больше обычного</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card">
+                        <div class="stats-card-icon bg-blue-100">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-600 mb-1">Средний балл</p>
+                            <p class="text-3xl font-bold text-gray-900">4.2</p>
+                            <p class="text-xs text-blue-600 mt-1">Отличная успеваемость</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card">
+                        <div class="stats-card-icon bg-purple-100">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-600 mb-1">Посещаемость</p>
+                            <p class="text-3xl font-bold text-gray-900">87%</p>
+                            <p class="text-xs text-purple-600 mt-1">За последние 30 дней</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Grid Layout -->
+                <div class="desktop-grid-2 gap-6">
+                    
+                    <!-- Left Column -->
+                    <div class="space-y-6">
+                        
+                        <!-- Weekly Calendar -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-bold text-gray-900">Эта неделя</h3>
+                                <div class="flex items-center space-x-2">
+                                    <button class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <span class="text-sm text-gray-600 font-medium">16 - 22 октября</span>
+                                    <button class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-7 gap-3">
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">ПН</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">16</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">ВТ</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">17</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">СР</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">18</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">ЧТ</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">19</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">ПТ</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">20</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-green-600 mb-2 font-medium">СБ</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white font-bold shadow-lg transition-transform hover:scale-105">21</button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-xs text-gray-500 mb-2 font-medium">ВС</p>
+                                    <button class="w-full aspect-square rounded-xl bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 font-medium transition-colors">22</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Today's Schedule -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Расписание на сегодня</h3>
+                            
+                            <div class="space-y-4">
+                                <!-- Class Item 1 -->
+                                <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-semibold text-green-700">11:05 - 11:55</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Лаб</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                            <span class="text-xs text-green-600 font-medium">Присутствует</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">UX/UI дизайн</h4>
+                                    <p class="text-sm text-gray-600 mb-3">Имаматдинова К.Ф.</p>
+                                    <div class="flex items-center justify-between text-xs text-gray-500">
+                                        <div class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>ККУЦ 402</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="mr-2">Посещаемость:</span>
+                                            <span class="font-semibold text-green-600">85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Class Item 2 -->
+                                <div class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-semibold text-blue-700">12:10 - 13:00</span>
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">Лек</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                            <span class="text-xs text-blue-600 font-medium">Присутствует</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">UX/UI дизайн</h4>
+                                    <p class="text-sm text-gray-600 mb-3">Имаматдинова К.Ф.</p>
+                                    <div class="flex items-center justify-between text-xs text-gray-500">
+                                        <div class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>ГУК 535</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="mr-2">Посещаемость:</span>
+                                            <span class="font-semibold text-blue-600">92%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Class Item 3 -->
+                                <div class="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-semibold text-orange-700">13:15 - 14:05</span>
+                                            <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">Прак</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                                            <span class="text-xs text-orange-600 font-medium">Опоздание</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">UX/UI дизайн</h4>
+                                    <p class="text-sm text-gray-600 mb-3">Шаханов Э.Р.</p>
+                                    <div class="flex items-center justify-between text-xs text-gray-500">
+                                        <div class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>ГУК 1014</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="mr-2">Посещаемость:</span>
+                                            <span class="font-semibold text-orange-600">78%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Class Item 4 -->
+                                <div class="p-4 bg-purple-50 border-l-4 border-purple-500 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-semibold text-purple-700">14:20 - 15:10</span>
+                                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">Прак</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                                            <span class="text-xs text-purple-600 font-medium">Присутствует</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Capstone project 1</h4>
+                                    <p class="text-sm text-gray-600 mb-3">Утегенова А.У.</p>
+                                    <div class="flex items-center justify-between text-xs text-gray-500">
+                                        <div class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>ГУК 333</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="mr-2">Посещаемость:</span>
+                                            <span class="font-semibold text-purple-600">95%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-6">
+                        
+                        <!-- Notifications -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-bold text-gray-900">Уведомления</h3>
+                                <a href="notifications.html" class="text-sm text-green-600 hover:text-green-700 font-medium">Смотреть все</a>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-xl text-white cursor-pointer hover:shadow-lg transition-shadow">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold mb-1">Оценка выставлена</p>
+                                            <p class="text-sm opacity-90">UX/UI дизайн - 9 баллов</p>
+                                            <p class="text-xs opacity-75 mt-2">2 часа назад</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl text-white cursor-pointer hover:shadow-lg transition-shadow">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold mb-1">Напоминание</p>
+                                            <p class="text-sm opacity-90">Экзамен через 3 дня</p>
+                                            <p class="text-xs opacity-75 mt-2">5 часов назад</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-gray-100 rounded-xl cursor-pointer hover:bg-gray-200 transition-colors">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
+                                                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold text-gray-900 mb-1">Новое сообщение</p>
+                                            <p class="text-sm text-gray-600">Проверьте задание по Capstone</p>
+                                            <p class="text-xs text-gray-500 mt-2">Вчера</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Events -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Предстоящие события</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4 p-3 bg-red-50 rounded-lg border border-red-100">
+                                    <div class="text-center bg-red-600 text-white rounded-lg p-2 flex-shrink-0">
+                                        <p class="text-2xl font-bold">24</p>
+                                        <p class="text-xs">ОКТ</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-gray-900">Экзамен</p>
+                                        <p class="text-sm text-gray-600">UX/UI дизайн</p>
+                                        <p class="text-xs text-gray-500 mt-1">09:00 - ГУК 535</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                                    <div class="text-center bg-blue-600 text-white rounded-lg p-2 flex-shrink-0">
+                                        <p class="text-2xl font-bold">26</p>
+                                        <p class="text-xs">ОКТ</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-gray-900">Сдача проекта</p>
+                                        <p class="text-sm text-gray-600">Capstone project 1</p>
+                                        <p class="text-xs text-gray-500 mt-1">До 18:00</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4 p-3 bg-green-50 rounded-lg border border-green-100">
+                                    <div class="text-center bg-green-600 text-white rounded-lg p-2 flex-shrink-0">
+                                        <p class="text-2xl font-bold">30</p>
+                                        <p class="text-xs">ОКТ</p>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-gray-900">Конференция</p>
+                                        <p class="text-sm text-gray-600">IT Student Conference</p>
+                                        <p class="text-xs text-gray-500 mt-1">10:00 - Актовый зал</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Быстрые действия</h3>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="p-4 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl hover:shadow-lg transition-all hover:scale-105">
+                                    <svg class="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <p class="text-sm font-semibold">Полное расписание</p>
+                                </button>
+                                
+                                <button class="p-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl hover:shadow-lg transition-all hover:scale-105">
+                                    <svg class="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <p class="text-sm font-semibold">Мои курсы</p>
+                                </button>
+                                
+                                <button class="p-4 bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all hover:scale-105">
+                                    <svg class="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    <p class="text-sm font-semibold">Библиотека</p>
+                                </button>
+                                
+                                <button class="p-4 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl hover:shadow-lg transition-all hover:scale-105">
+                                    <svg class="w-6 h-6 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <p class="text-sm font-semibold">Помощь</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/desktop-scripts.js"></script>
+</body>
+</html>
