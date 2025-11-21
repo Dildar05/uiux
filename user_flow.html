@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Flow — Desktop</title>
+  <style>
+    :root{--bg:#ffffff;--card:#fff;--accent:#ff6b6b;--muted:#666;--box:#f7f7f9}
+    body{font-family: Inter, Arial, sans-serif;background:linear-gradient(180deg,#fafafa,#f2f6fb);margin:0;padding:24px;color:#222}
+    h1{text-align:center;color:#d94f4f;margin-bottom:18px}
+    #flow-wrap{max-width:1200px;margin:0 auto;background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 30px rgba(17,24,39,0.06)}
+    svg{width:100%;height:850px;display:block}
+    .node{cursor:pointer}
+    .box{fill:#fff;stroke:#ddd;stroke-width:1.2;rx:8;filter: drop-shadow(0 4px 10px rgba(0,0,0,0.04));}
+    .title{font:16px/1.1 'Segoe UI', Arial, sans-serif;fill:#222}
+    .desc{font:12px/1.1 'Segoe UI', Arial, sans-serif;fill:var(--muted)}
+    .diamond{fill:#fff;stroke:#e4c96a;stroke-width:1.2}
+    .cta{fill:var(--accent);stroke:transparent}
+    .hint{position:fixed;left:24px;bottom:24px;background:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08);font-size:13px;color:#333}
+    .legend{display:flex;gap:12px;justify-content:center;margin-top:12px}
+    .legend span{display:inline-flex;align-items:center;gap:8px;background:#fff;padding:8px 10px;border-radius:8px;border:1px solid #eee}
+    a.link{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <h1>USER FLOW — Desktop (интерактивный)</h1>
+  <div id="flow-wrap">
+    <svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" id="flow">
+      <!-- Definitions -->
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L10,5 L0,10 z" fill="#9aa3b2" />
+        </marker>
+      </defs>
+
+      <!-- START -->
+      <g class="node" id="start" data-title="Start" data-desc="Начало сценария">
+        <rect x="40" y="40" width="160" height="48" rx="24" class="box" stroke="#b9a0d8"/>
+        <text x="120" y="72" text-anchor="middle" class="title">Start</text>
+      </g>
+
+      <!-- Decision 1: Do you want to Login/Signup? -->
+      <g class="node" id="dec_login" transform="translate(260,30)" data-title="Вы хотите войти/зарегистрироваться?" data-desc="Решение: перейти к логину или показать инструкции">
+        <g>
+          <polygon points="100,0 160,40 100,80 40,40" class="diamond"/>
+          <text x="100" y="42" text-anchor="middle" class="title" style="font-size:13px">Do you want to
+Login/Signup?</text>
+        </g>
+      </g>
+
+      <!-- No path -> Instructions -->
+      <g class="node" id="instructions" transform="translate(40,150)" data-title="Instructions" data-desc="Показать инструкции по использованию приложения">
+        <rect x="0" y="0" width="260" height="70" rx="6" class="box"/>
+        <text x="130" y="28" text-anchor="middle" class="title">Instructions to
+use the app</text>
+      </g>
+
+      <!-- Sign up -->
+      <g class="node" id="signup" transform="translate(340,150)" data-title="Sign up" data-desc="Переход на экран регистрации">
+        <rect x="0" y="0" width="160" height="52" rx="8" class="box"/>
+        <text x="80" y="32" text-anchor="middle" class="title">Sign up</text>
+      </g>
+
+      <!-- Decision 2: Do you have an account? -->
+      <g class="node" id="dec_account" transform="translate(340,80)" data-title="Есть аккаунт?" data-desc="Если да — логин, иначе регистрация">
+        <g>
+          <polygon points="80,0 140,40 80,80 20,40" class="diamond"/>
+          <text x="80" y="42" text-anchor="middle" class="title" style="font-size:13px">Do you have an
+account?</text>
+        </g>
+      </g>
+
+      <!-- Login -->
+      <g class="node" id="login" transform="translate(520,30)" data-title="Login" data-desc="Экран входа">
+        <rect x="0" y="0" width="120" height="52" rx="8" class="box"/>
+        <text x="60" y="32" text-anchor="middle" class="title">Login</text>
+      </g>
+
+      <!-- Fill out the short form -->
+      <g class="node" id="shortform" transform="translate(520,120)" data-title="Fill out the short form" data-desc="Короткая форма (поля пользователя)">
+        <rect x="0" y="0" width="240" height="64" rx="8" class="box"/>
+        <text x="120" y="28" text-anchor="middle" class="title">Fill out the short form</text>
+        <text x="120" y="48" text-anchor="middle" class="desc">(profile / preferences)</text>
+      </g>
+
+      <!-- Review the list -->
+      <g class="node" id="review_list" transform="translate(820,100)" data-title="Review the list" data-desc="Просмотр списка: отели, рестораны, активности">
+        <rect x="0" y="0" width="240" height="64" rx="8" class="box"/>
+        <text x="120" y="28" text-anchor="middle" class="title">Review the list</text>
+        <text x="120" y="48" text-anchor="middle" class="desc">(hotels, restaurants, activities)</text>
+      </g>
+
+      <!-- Choose from list -->
+      <g class="node" id="choose_from_list" transform="translate(820,220)" data-title="Choose from the list" data-desc="Выбор элемента из списка (to do / go)">
+        <rect x="0" y="0" width="240" height="64" rx="8" class="box"/>
+        <text x="120" y="28" text-anchor="middle" class="title">Choose from the list</text>
+        <text x="120" y="48" text-anchor="middle" class="desc">(to do / go)</text>
+      </g>
+
+      <!-- Decision: Do you want to add? -->
+      <g class="node" id="dec_add" transform="translate(820,340)" data-title="Do you want to add?" data-desc="Решение: добавить в сумку или нет">
+        <g>
+          <polygon points="120,0 220,60 120,120 20,60" class="diamond"/>
+          <text x="120" y="64" text-anchor="middle" class="title" style="font-size:14px">Do you want to add?</text>
+        </g>
+      </g>
+
+      <!-- Add to tote -->
+      <g class="node" id="add_to_tote" transform="translate(1040,300)" data-title="Add it to your tote" data-desc="Добавить выбранный элемент в сумку/корзину">
+        <rect x="0" y="0" width="160" height="52" rx="8" class="box"/>
+        <text x="80" y="32" text-anchor="middle" class="title">Add it to your tote</text>
+      </g>
+
+      <!-- Do you want to add more? -->
+      <g class="node" id="dec_more" transform="translate(1040,400)" data-title="Do you want to add more?" data-desc="Решение: добавить ещё или перейти к проверке">
+        <g>
+          <polygon points="80,0 140,40 80,80 20,40" class="diamond"/>
+          <text x="80" y="42" text-anchor="middle" class="title" style="font-size:13px">Do you want to
+add more?</text>
+        </g>
+      </g>
+
+      <!-- Review your tote -->
+      <g class="node" id="review_tote" transform="translate(820,460)" data-title="Review your tote" data-desc="Просмотр содержимого сумки/корзины">
+        <rect x="0" y="0" width="240" height="64" rx="8" class="box"/>
+        <text x="120" y="32" text-anchor="middle" class="title">Review your tote</text>
+      </g>
+
+      <!-- Decision: Did you already Login/Sign up? -->
+      <g class="node" id="dec_did_login" transform="translate(520,520)" data-title="Did you already Login/Sign up?" data-desc="Если нет — предлагать логин/регистрацию">
+        <g>
+          <polygon points="80,0 140,40 80,80 20,40" class="diamond"/>
+          <text x="80" y="42" text-anchor="middle" class="title" style="font-size:13px">Did you already
+Login/Sign up?</text>
+        </g>
+      </g>
+
+      <!-- Packaging list & estimated price -->
+      <g class="node" id="packaging" transform="translate(240,620)" data-title="Packaging List & Price" data-desc="Итоговый список и оценочная стоимость">
+        <rect x="0" y="0" width="300" height="72" rx="8" class="box"/>
+        <text x="150" y="30" text-anchor="middle" class="title">Packaging List &</text>
+        <text x="150" y="50" text-anchor="middle" class="title">estimated price</text>
+      </g>
+
+      <!-- END -->
+      <g class="node" id="end" transform="translate(840,640)" data-title="END" data-desc="Конец сценария">
+        <rect x="0" y="0" width="120" height="52" rx="26" class="box"/>
+        <text x="60" y="32" text-anchor="middle" class="title">END</text>
+      </g>
+
+      <!-- Login/Signup final box -->
+      <g class="node" id="login_signup_final" transform="translate(360,560)" data-title="Login / Sign up" data-desc="Экран: логин или регистрация для завершения процесса">
+        <rect x="0" y="0" width="160" height="52" rx="8" class="box"/>
+        <text x="80" y="32" text-anchor="middle" class="title">Login / Sign up</text>
+      </g>
+
+      <!-- Arrows (paths) -->
+      <path d="M200 64 L260 64" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+      <path d="M360 64 L400 64" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- From decision to sign up (No) -->
+      <path d="M320 110 C260 150,200 180,160 180" stroke="#9aa3b2" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+      <!-- From decision to account? (Yes) -->
+      <path d="M360 110 L400 110" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- From account? to login -->
+      <path d="M460 70 L520 70" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- login to shortform -->
+      <path d="M580 82 L580 120" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- shortform to review list -->
+      <path d="M760 160 L820 160" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- review to choose -->
+      <path d="M940 164 L940 220" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- choose to decision add -->
+      <path d="M1060 252 L1060 300" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- decision add to add_to_tote (Yes) -->
+      <path d="M900 360 L1040 360" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- add to decide more -->
+      <path d="M1120 352 L1120 400" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- decide more No -> review tote (No) -->
+      <path d="M1080 440 L940 492" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- review tote down to did you login -->
+      <path d="M820 524 L640 524" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- did you login No -> login/signup final -->
+      <path d="M520 564 L400 564" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- did you login Yes -> packaging -->
+      <path d="M520 564 L520 680 L360 680" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- packaging to END -->
+      <path d="M540 680 L840 680" stroke="#9aa3b2" stroke-width="2" marker-end="url(#arrow)" fill="none" />
+
+      <!-- small labels for edges (optional) -->
+      <text x="260" y="52" class="desc">Yes</text>
+      <text x="150" y="190" class="desc">No</text>
+
+    </svg>
+
+    <div class="legend" aria-hidden="true">
+      <span><svg width="14" height="14"><rect width="14" height="14" rx="3" fill="#fff" stroke="#ddd"/></svg> Step</span>
+      <span><svg width="14" height="14"><polygon points="7,0 14,7 7,14 0,7" fill="#fff" stroke="#e4c96a"/></svg> Decision</span>
+      <span><svg width="14" height="14"><rect width="14" height="14" rx="3" fill="#ff6b6b"/></svg> CTA / Action</span>
+    </div>
+
+    <div style="padding:14px 18px;color:#444;font-size:13px">
+      <strong>Интерактив:</strong> наведите на блок, чтобы увидеть подсказку; кликните — откроется окно с описанием шага.
+    </div>
+  </div>
+
+  <div class="hint" id="hint">Hover over a node to see details</div>
+
+  <script>
+    // Simple interactivity: hover shows hint; click opens modal-like alert with details
+    const svg = document.getElementById('flow');
+    const hint = document.getElementById('hint');
+
+    svg.querySelectorAll('.node').forEach(node => {
+      node.addEventListener('mouseenter', (e) => {
+        const title = node.dataset.title || '';
+        const desc = node.dataset.desc || '';
+        hint.textContent = title + ' — ' + desc;
+      });
+      node.addEventListener('mouseleave', (e) => {
+        hint.textContent = 'Hover over a node to see details';
+      });
+      node.addEventListener('click', (e) => {
+        const title = node.dataset.title || 'Step';
+        const desc = node.dataset.desc || '';
+        // small overlay window
+        showDetail(title, desc);
+      });
+    });
+
+    function showDetail(title, desc){
+      const w = window.open('', '_blank', 'width=520,height=360');
+      const html = `<!doctype html><html><head><meta charset=\"utf-8\"><title>${title}</title><style>body{font-family:Arial;padding:18px}h2{color:#d94f4f}p{color:#333}</style></head><body><h2>${title}</h2><p>${desc}</p><p style=\"margin-top:18px;color:#666;font-size:13px\">Close this window to return to the flow.</p></body></html>`;
+      w.document.write(html);
+      w.document.close();
+    }
+  </script>
+</body>
+</html>

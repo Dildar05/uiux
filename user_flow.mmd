@@ -1,0 +1,68 @@
+%% User flow для студенческого портала (Desktop)
+flowchart LR
+  %% Старт
+  Start((Start))
+
+  %% Вход/регистрация
+  DecLogin{"Хотите войти/зарегистрироваться?"}
+  DecHaveAccount{"Есть аккаунт?"}
+  Login["Login\n(вход) — `login.html`"]
+  Signup["Sign up\n(регистрация)"]
+  Forgot["Forgot password\n(восстановление)"]
+
+  %% Гости / Инструкции
+  Instructions["Инструкции / обзор портала\n(гость — ограниченный доступ)"]
+  GuestDashboard["Dashboard (Гость)\n(ограниченный) — `index.html`"]
+
+  %% Основной дашборд и разделы
+  Dashboard["Dashboard / Главная\n`index.html`"]
+  Grades["Grades\nПросмотр оценок — `grades.html`"]
+  GradeDetail["Grade detail\n(детали оценки)"]
+  Journal["Journal\nУчебный журнал — `journal.html`"]
+  Notifications["Notifications\n`notifications.html`"]
+  Profile["Profile / Settings"]
+  Logout((Logout))
+  End((END))
+
+  %% Связи
+  Start --> DecLogin
+  DecLogin -- "No" --> Instructions
+  Instructions --> GuestDashboard
+  GuestDashboard -- "Попробовать доступно" --> Dashboard
+
+  DecLogin -- "Yes" --> DecHaveAccount
+  DecHaveAccount -- "No" --> Signup --> Dashboard
+  DecHaveAccount -- "Yes" --> Login
+  Login -- "Forgot?" --> Forgot
+  Login --> Dashboard
+  Forgot --> Login
+
+  %% Навигация внутри портала
+  Dashboard --> Grades
+  Dashboard --> Journal
+  Dashboard --> Notifications
+  Dashboard --> Profile
+  Profile --> Logout
+
+  %% Ветки внутри Grades/Journal
+  Grades --> GradeDetail
+  GradeDetail --> Grades
+
+  Journal --> JournalCreate["Добавить запись"]
+  JournalCreate --> Journal
+
+  Notifications --> NotificationOpen["Открыть уведомление"]
+  NotificationOpen --> Notifications
+
+  %% Завершение
+  Logout --> End
+  Dashboard --> End
+
+  %% Стили
+  classDef decision fill:#fff,stroke:#e4c96a,stroke-width:1.2,color:#000;
+  class DecLogin,DecHaveAccount decision;
+
+  classDef step fill:#fff,stroke:#ddd,color:#000;
+  class Start,Instructions,GuestDashboard,Signup,Login,Forgot,Dashboard,Grades,GradeDetail,Journal,JournalCreate,Notifications,NotificationOpen,Profile,Logout,End step;
+
+  %% Примечание: откройте этот файл в Mermaid-совместимом редакторе (VS Code + Mermaid, Live Editor)

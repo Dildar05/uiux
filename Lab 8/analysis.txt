@@ -1,0 +1,8 @@
+Accessibility contrast analysis (до / после)
+Name,Foreground(before),Background,Contrast(before),Requirement,Foreground(after),Contrast(after),Result
+Primary text on background,#15803d,#f9fafb,4.80,>=4.5,#0f5130,8.97,OK
+Primary button (white on primary),#ffffff,#15803d,5.02,>=4.5,#0f5130,1.87,FAIL
+Secondary accent on background,#84cc16,#f9fafb,1.89,>=4.5,#5f8d0f,3.79,FAIL
+Text (primary) on card,#374151,#ffffff,10.31,>=4.5,#111827,17.74,OK
+Muted text on background,#6b7280,#f9fafb,4.63,>=4.5,#4b5563,7.23,OK
+Sidebar bg and white text,#ffffff,#334155,10.35,>=3,#ffffff,10.35,OK

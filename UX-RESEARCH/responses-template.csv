@@ -1,0 +1,2 @@
+participant_id,role,age_range,frequency,find_schedule_1_5,sidebar_clarity_1_5,confusing_element,visual_1_5,most_useful,improvement_suggestion,wants_interview,contact,timestamp,notes
+p01,student,18-24,Daily,5,4,"—",5,"Schedule","Make sidebar narrower",Yes,email@example.com,2025-11-08T12:00:00Z,"Task A success: yes; Task B took 20s"

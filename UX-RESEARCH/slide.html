@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>UX Research — Summary Slide</title>
+  <style>
+    body{font-family:Inter,system-ui,Arial;margin:0;background:#f3f4f6;color:#111}
+    .slide{width:1200px;margin:24px auto;background:#fff;padding:28px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+    h1{font-size:22px;margin:0 0 10px}
+    .meta{color:#6b7280;font-size:13px;margin-bottom:18px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #e5e7eb;padding:14px;text-align:left;vertical-align:top}
+    th{background:#f9fafb;color:#374151}
+    .obs{width:40%}
+    .ins{width:30%}
+    .idea{width:30%}
+    .note{font-size:12px;color:#6b7280;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1>UX Research — Ключевые наблюдения и инсайты</h1>
+    <div class="meta">N participants: (подставьте число) • Метод: mini-survey + 5–10 interviews</div>
+
+    <table>
+      <thead>
+        <tr><th class="obs">Наблюдение</th><th class="ins">Инсайт</th><th class="idea">Идея / Рекомендация</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Часть участников затрудняются найти расписание/ориентироваться (низкие оценки поиска расписания).</td>
+          <td>Навигация и видимость расписания недостаточно очевидны — пользователи не сразу находят нужную карточку.</td>
+          <td>Добавить яркий CTA "Сегодня" в шапке, подсветить карточку расписания и сократить лишние пункты в сайдбаре.</td>
+        </tr>
+        <tr>
+          <td>Сайдбар воспринимается громоздким — жалобы на ширину и плотность пунктов.</td>
+          <td>Слишком много элементов и большая ширина мешают быстрому сканированию.</td>
+          <td>Уменьшить ширину, сгруппировать элементы, добавить разделители и иконки для быстрого распознавания.</td>
+        </tr>
+        <tr>
+          <td>Некоторые уведомления теряются в визуальном шуме, важные карточки не выделены.</td>
+          <td>Приоритеты визуальной иерархии не очевидны — пользователи пропускают важные события/оценки.</td>
+          <td>Использовать цветовые акценты для важной информации, добавить метки "Новое/Срочно" и уведомление в шапке.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">Как использовать: обновите таблицу в соответствии с результатами анализа (analyze_responses.py), затем откройте в браузере и распечатайте в PDF (Ctrl+P → Save as PDF).</div>
+  </div>
+</body>
+</html>

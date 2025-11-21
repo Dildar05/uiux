@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lab 8 — Accessibility Audit (desktop)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Лабораторная 8 — Аудит доступности (по проекту desktop)</h1>
+      <div class="controls">
+        <label><input id="theme-toggle" type="checkbox"> Высококонтрастная тема</label>
+        <button id="compute-btn" class="btn">Вычислить контраст</button>
+        <a id="csv-link" class="csv-link hidden" href="#">Скачать CSV</a>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Цветовые пары (использованы цвета из `desktop/css/desktop-styles.css`)</h2>
+      <p class="meta">Измените hex и тип (Normal / Large bold), затем нажмите «Вычислить контраст».</p>
+      <div id="color-rows"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th>Foreground</th>
+            <th>Background</th>
+            <th>Контраст (фактический)</th>
+            <th>Требование WCAG 2.1 (AA)</th>
+            <th>Рекомендация</th>
+            <th>Действие</th>
+            <th>Результат</th>
+          </tr>
+        </thead>
+        <tbody id="contrast-body"></tbody>
+      </table>
+
+      <section id="analysis-section" class="card" aria-live="polite">
+        <h3>Анализ и предложения по исправлению</h3>
+        <div id="analysis-content" class="meta">Нажмите «Вычислить контраст», чтобы увидеть полный анализ и рекомендации по исправлению не прошедших пар.</div>
+      </section>
+    </section>
+
+    <!-- SVG filters used for color-blindness simulation (applied via CSS classes .filter-protan/.filter-deutan/.filter-tritan) -->
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+      <defs>
+        <!-- Protanopia approximation -->
+        <filter id="protanopia">
+          <feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/>
+        </filter>
+        <!-- Deuteranopia approximation -->
+        <filter id="deuteranopia">
+          <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
+        </filter>
+        <!-- Tritanopia approximation -->
+        <filter id="tritanopia">
+          <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <section class="card">
+      <h2>Типографическая шкала</h2>
+      <div class="typescale-grid">
+        <div>
+          <div class="scale-item ts-display">Display 48 — Пример большого дисплейного заголовка</div>
+          <div class="scale-item ts-h1">H1 32 — Заголовок уровня 1</div>
+          <div class="scale-item ts-h2">H2 24 — Заголовок уровня 2</div>
+          <div class="scale-item ts-body">Body 16 — Текст основного контента. Проверка межстрочного интервала и длины строки (≤ 75 символов).</div>
+          <div class="scale-item ts-caption">Caption 12 — Подписи и метки.</div>
+        </div>
+        <div>
+          <h3 class="small">CSS‑фрагменты (скопируйте в свой UI‑kit или файл стилей)</h3>
+          <div id="typography-css" class="css-snippet">:root {
+  --font-family-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.display { font-family: var(--font-family-sans); font-size: 48px; line-height: 1.1; font-weight: 700; }
+.h1 { font-family: var(--font-family-sans); font-size: 32px; line-height: 1.2; font-weight: 700; }
+.h2 { font-family: var(--font-family-sans); font-size: 24px; line-height: 1.25; font-weight: 700; }
+.body { font-family: var(--font-family-sans); font-size: 16px; line-height: 1.5; font-weight: 400; }
+.caption { font-family: var(--font-family-sans); font-size: 12px; line-height: 1.4; font-weight: 400; color: var(--text-light); }
+</div>
+          <button id="copy-typography-css" class="copy-btn">Скопировать CSS</button>
+          <div id="copy-msg" class="small" style="margin-top:8px;color:green;display:none">Скопировано в буфер обмена</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Typography Audit — проверка шрифтов в проекте `desktop`</h2>
+      <p class="meta">Проверка размеров заголовков H1–H3, Body/Caption, межстрочного интервала и длины строки в реальных HTML‑страницах проекта.</p>
+      <div class="row" style="align-items:center;gap:12px">
+        <button id="scan-typography" class="btn">Сканировать страницы desktop</button>
+        <span class="small">(анализирует: index.html, journal.html, grades.html, notifications.html, login.html)</span>
+      </div>
+      <div id="typography-report" class="meta" style="margin-top:12px">Отчёт появится здесь после сканирования.</div>
+    </section>
+
+    <section class="card">
+      <h2>Симуляция дальтонизма</h2>
+      <div class="simulation">
+        <label><input id="sim-protan" type="checkbox"> Protanopia</label>
+        <label><input id="sim-deutan" type="checkbox"> Deuteranopia</label>
+        <label><input id="sim-tritan" type="checkbox"> Tritanopia</label>
+      </div>
+
+      <div id="preview-area" class="preview-screen">
+        <div class="row preview-row">
+          <div style="flex:1">
+            <h3 class="h1">Пример интерфейса</h3>
+            <p class="body">Кнопки, статусы и иконки должны быть различимы при симуляции дальтонизма.</p>
+          </div>
+          <div style="text-align:right">
+            <button class="btn">Primary</button>
+            <button class="btn secondary">Secondary</button>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="mobile-frame" id="mobile-preview">
+            <h2 class="h2">Mobile 360×800 preview</h2>
+            <p class="body">Проверьте читаемость и размеры сенсорных целей. Ниже — три карточки примеров из проекта desktop с Primary action.</p>
+            <div class="mobile-cards">
+              <div class="mobile-card">
+                <div class="mc-title">Журнал — Оценки</div>
+                <div class="mc-body">Последняя оценка: 5. Проверьте действие доступа к заданию.</div>
+                <div class="mc-actions">
+                  <button class="btn mobile-primary">Открыть журнал</button>
+                  <button class="btn secondary">Поделиться</button>
+                </div>
+              </div>
+
+              <div class="mobile-card">
+                <div class="mc-title">Уведомления</div>
+                <div class="mc-body">У вас 3 новых уведомления об заданиях и событиях.</div>
+                <div class="mc-actions">
+                  <button class="btn mobile-primary">Просмотреть</button>
+                  <button class="btn secondary">Отключить</button>
+                </div>
+              </div>
+
+              <div class="mobile-card">
+                <div class="mc-title">Календарь занятий</div>
+                <div class="mc-body">Ближайшее занятие завтра в 10:00 — подтвердите присутствие.</div>
+                <div class="mc-actions">
+                  <button class="btn mobile-primary">Подтвердить</button>
+                  <button class="btn secondary">Подробнее</button>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+              <button id="check-mobile-targets" class="btn small">Check mobile targets</button>
+              <div id="mobile-check-results" class="small" style="margin-left:8px">Результаты проверки сенсорных целей появятся здесь.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Детальная проверка: симуляция дальтонизма, состояния и сравнение "До / После"</h2>
+      <p class="meta">Нажмите <strong>Run detailed checks</strong> чтобы выполнить полный набор проверок: симуляции дальтонизма (Stark‑like), проверку состояний hover/pressed/disabled в светлой и тёмной темах, генерацию A11y варианта палитры и применение его к примерам экранов.</p>
+      <div class="row" style="gap:10px;align-items:center">
+        <button id="run-detailed" class="btn">Run detailed checks</button>
+        <button id="gen-a11y" class="btn secondary">Generate Brand / A11y variants</button>
+        <button id="apply-a11y-preview" class="btn small">Apply A11y to "After" preview</button>
+        <button id="reset-preview" class="btn small">Reset previews</button>
+      </div>
+
+      <div id="detailed-results" class="meta" style="margin-top:12px">Результаты появятся здесь.</div>
+
+      <h3 style="margin-top:16px">Примеры экранов — сравнение До / После</h3>
+      <div class="before-after-grid">
+        <div class="mock-card">
+          <h4>Before — оригинальная палитра</h4>
+          <div id="mock-before" class="mock-screen">
+            <!-- simple mock of header/sidebar/card to preview original colors -->
+            <div class="mock-sidebar">Меню</div>
+            <div class="mock-main">
+              <div class="mock-header">Учебный портал — (Header)</div>
+              <div class="mock-content">
+                <h2 class="h2">Студент Иванов</h2>
+                <p class="body">Пример карточки с текстом и кнопками для проверки контрастности и состояний.</p>
+                <div class="mock-actions">
+                  <button class="btn mock-primary">Primary</button>
+                  <button class="btn secondary mock-secondary">Secondary</button>
+                  <button class="btn" disabled>Disabled</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock-card">
+          <h4>After — A11y / Brand вариант</h4>
+          <div id="mock-after" class="mock-screen">
+            <div class="mock-sidebar">Меню</div>
+            <div class="mock-main">
+              <div class="mock-header">Учебный портал — (Header)</div>
+              <div class="mock-content">
+                <h2 class="h2">Студент Иванов</h2>
+                <p class="body">Тот же контент, но с A11y палитрой — проверьте цвета и состояния.</p>
+                <div class="mock-actions">
+                  <button class="btn mock-primary">Primary</button>
+                  <button class="btn secondary mock-secondary">Secondary</button>
+                  <button class="btn" disabled>Disabled</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="meta">Сгенерировано на основе `desktop/css/desktop-styles.css` — цвета: --primary, --primary-light, --secondary, --background, --card, --text, --text-light, --border, --sidebar-bg.</footer>
+  </div>
+
+  <section class="card" style="max-width:1100px;margin:18px auto">
+    <h2>Предпросмотр главной страницы (desktop/index.html)</h2>
+    <p class="meta">Встроенный предпросмотр главной страницы. Переключатель темы применяет класс <code>.dark</code> внутри iframe (тот же механизм, что в `desktop/css/desktop-styles.css`). Требуется запуск локального HTTP‑сервера.</p>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+      <label style="display:flex;align-items:center;gap:8px"><input id="main-theme-toggle" type="checkbox"> Тёмная тема</label>
+      <span class="small">(переключение темы действует только в этом превью)</span>
+    </div>
+    <div class="iframe-preview">
+      <iframe id="main-preview-iframe" src="../desktop/index.html" width="100%" height="640" title="Preview of desktop index"></iframe>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
